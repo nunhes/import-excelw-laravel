@@ -21,6 +21,6 @@ class DatabaseSeeder extends Seeder
             CategoriesSeeder::class,
         ]);
 
-        Product::factory(12000)->create();
+        /* Product::factory(12000)->create(); */
     }
 }

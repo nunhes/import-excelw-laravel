@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Productos
-                    <a href="#" class="btn btn-danger float-right">Importar Productos</a>
+                    <a href="{{route('products.create')}}" class="btn btn-danger float-right">Importar Productos</a>
                 </div>
 
                 <div class="card-body">
@@ -36,7 +36,6 @@
 @section('scripts')
 <script>
     $(document).ready(function() {
-
         $('.products_table').DataTable({
             processing: true,
             serverSide: true,

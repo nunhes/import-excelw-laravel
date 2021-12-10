@@ -8,9 +8,11 @@
                 <div class="card-header">Importar productos</div>
 
                 <div class="card-body">
-                    @if (session('errors'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('errors') }}
+                    @if (isset($errors) && $errors->any())
+                    <div class="alert alert-danger" role="alert">
+                        @foreach ($errors->all() as $error)
+                        {{$error}}
+                        @endforeach
                     </div>
                     @endif
 

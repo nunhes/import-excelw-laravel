@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\ProductsImport;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\DataTables;
 
 class ProductController extends Controller
@@ -44,7 +46,12 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $file = $request->file('import_file');
+
+        Excel::import(new ProductsImport, $file);
+
+        return redirect()->route('products.index')->with('success', 'Productos importados exitosamente');
     }
 
     /**
